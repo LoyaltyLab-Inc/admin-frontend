@@ -1,6 +1,6 @@
-@header-color: #FFFFFF;
+@import "../../styles.less";
 
-.mainContent {
+.root {
   background: #F0F4FA;
   width: 100vw;
   height: 100vh;
@@ -8,13 +8,13 @@
 }
 
 .header {
-  height: 60px;
+  height: @header-height;
   background: @header-color;
   width: 100%;
   position: fixed;
   top: 0px;
   box-sizing: border-box;
-  box-shadow: 0 0 2px rgba(0,0,0,0.7);
+  box-shadow: @shadow;
 
   &__menu {
     position: absolute;
@@ -22,7 +22,7 @@
     top: 50%;
     transform: translateY(-50%);
     left: 20px;
-    background: linear-gradient(to bottom right, #E88C42, #B2727D);
+    background: @main-gradient;
 
     &-transitioned {
       transition: all 0.5s ease-out;
@@ -31,9 +31,9 @@
   }
 
   &__logo {
-    width: 160px;
+    width: @left-side;
     height: 100%;
-    background: linear-gradient(to bottom right, #E88C42, #B2727D);
+    background: @main-gradient;
     position: absolute;
     display: flex;
     align-items: center;
@@ -42,47 +42,47 @@
       font-family: "Comic Sans MS";
       color: white;
       margin: auto;
-      font-size: 25px;
+      font-size: 28px;
     }
   }
 
-  &__right {
+  &__right-content {
     position: absolute;
     right: 0px;
     display: flex;
+  }
+}
 
-    &__item {
-      position: relative;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      color: #1F2020;
-      height: 60px;
-      width: 100px;
-      box-sizing: border-box;
-      background: transparent;
-      padding: 0 10px;
-      transition: all 0.2s ease-out;
-      cursor: pointer;
+.right-content__item {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: @font-color;
+  height: 60px;
+  width: 100px;
+  box-sizing: border-box;
+  background: transparent;
+  padding: 0 10px;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
 
-      &:hover {
-        background: darken(@header-color, 10%);
-      }
+  &:hover {
+    background: darken(@header-color, 10%);
+  }
 
-      &-text {
-        font-size: 17px;
-      }
-    }
+  &-text {
+    font-size: 17px;
   }
 }
 
 .content {
   position: absolute;
   top: 60px;
-  left: 160px;
+  left: @left-side;
 }
 
-@media (max-width: 900px) {
+@media (max-width: @mobile-size) {
   .header__menu {
     display: block;
   }
@@ -93,11 +93,11 @@
     transform: translateX(-50%);
 
     &-content {
-      color: #1F2020;
+      color: @font-color;
     }
   }
 
-  .header__right__item-profile {
+  .mobile-none {
     display: none;
   }
 }

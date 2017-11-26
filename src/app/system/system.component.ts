@@ -16,6 +16,10 @@ export class SystemComponent implements OnInit {
     this.router.navigate(['/system/statistic']);
   }
 
+  onLogoClick() {
+    this.router.navigate(['/system/statistic']);
+  }
+
   onMenuBtnOpen() {
     this.isMenuTransitioned = true;
 

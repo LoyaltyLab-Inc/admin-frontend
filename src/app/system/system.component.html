@@ -1,25 +1,26 @@
-<div class="mainContent">
+<div class="root">
 
   <header class="header">
 
+    <!-- TODO: сделать нормальную анимацию на кнопку-->
     <a (click)="onMenuBtnOpen()" class="header__menu btn-floating">
       <i class="material-icons" [ngClass]="{'header__menu-transitioned': isMenuTransitioned}">menu</i>
     </a>
 
-    <div class="header__logo">
+    <div class="header__logo" (click)="onLogoClick()">
       <div class="header__logo-content">LoyaltyLab</div>
     </div>
 
-    <div class="header__right">
-      <div class="header__right__item header__right__item-profile" (click)="onProfileClick()">
-        <p class="header__right__item-text">Profile</p>
-        <i class="header__right__item-icon material-icons">face</i>
+    <div class="header__right-content">
+      <div class="right-content__item mobile-none" (click)="onProfileClick()">
+        <p class="right-content__item-text">Profile</p>
+        <i class="right-content__item-icon material-icons">face</i>
         <!--нужен сервис с фоткой-->
         <!--<img src="" alt="You">-->
       </div>
-      <div class="header__right__item" (click)="onLogOutClick()">
-        <i class="header__right__item-icon material-icons">exit_to_app</i>
-        <p class="header__right__item-text">Log&nbsp;out</p>
+      <div class="right-content__item" (click)="onLogOutClick()">
+        <i class="right-content__item-icon material-icons">exit_to_app</i>
+        <p class="right-content__item-text">Log&nbsp;out</p>
       </div>
     </div>
   </header>
