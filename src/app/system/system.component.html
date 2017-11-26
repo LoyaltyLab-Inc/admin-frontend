@@ -1,0 +1,31 @@
+<div class="root">
+
+  <header class="header">
+
+    <!-- TODO: сделать нормальную анимацию на кнопку-->
+    <a (click)="onMenuBtnOpen()" class="header__menu btn-floating">
+      <i class="material-icons" [ngClass]="{'header__menu-transitioned': isMenuTransitioned}">menu</i>
+    </a>
+
+    <div class="header__logo" (click)="onLogoClick()">
+      <div class="header__logo-content">LoyaltyLab</div>
+    </div>
+
+    <div class="header__right-content">
+      <div class="right-content__item mobile-none" (click)="onProfileClick()">
+        <p class="right-content__item-text">Profile</p>
+        <i class="right-content__item-icon material-icons">face</i>
+        <!--нужен сервис с фоткой-->
+        <!--<img src="" alt="You">-->
+      </div>
+      <div class="right-content__item" (click)="onLogOutClick()">
+        <i class="right-content__item-icon material-icons">exit_to_app</i>
+        <p class="right-content__item-text">Log&nbsp;out</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
