@@ -9,6 +9,13 @@ import { Router } from '@angular/router';
 export class SystemComponent implements OnInit {
   isMenuTransitioned = false;
   isMenuOpen = true;
+  pages = [
+    { link: '/statistic', icon: 'trending_up', text: 'Statistic' },
+    { link: '/shops', icon: 'shop_two', text: 'Shops' },
+    { link: '/products', icon: 'restaurant', text: 'Products' },
+    { link: '/management', icon: 'edit', text: 'Management' },
+    { link: '/feedback', icon: 'feedback', text: 'Feedback' }
+  ];
 
   constructor(private router: Router) { }
 

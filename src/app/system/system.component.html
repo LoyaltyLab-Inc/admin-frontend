@@ -24,28 +24,11 @@
   </header>
 
   <!--NAVIGATION-->
-  <nav class="left-nav" [ngClass]="{'menu-open': isMenuOpen}">
-    <div class="left-nav__page-btn waves-effect waves-light"
-         routerLink="/statistic" routerLinkActive="page-activated"
-         [routerLinkActiveOptions]="{exact: true}">
-        <i class="page-btn__icon material-icons">trending_up</i>
-        <p class="page-btn__text">Statistic</p>
-    </div>
-    <div class="left-nav__page-btn" routerLink="/shops" routerLinkActive="page-activated">
-      <i class="page-btn__icon material-icons">shop_two</i>
-      <p class="page-btn__text">Shops</p>
-    </div>
-    <div class="left-nav__page-btn" routerLink="/products" routerLinkActive="page-activated">
-      <i class="page-btn__icon material-icons">restaurant</i>
-      <p class="page-btn__text">Products</p>
-    </div>
-    <div class="left-nav__page-btn" routerLink="/management" routerLinkActive="page-activated">
-      <i class="page-btn__icon material-icons">edit</i>
-      <p class="page-btn__text">Management</p>
-    </div>
-    <div class="left-nav__page-btn" routerLink="/feedback" routerLinkActive="page-activated">
-      <i class="page-btn__icon material-icons">feedback</i>
-      <p class="page-btn__text">Feedback</p>
+  <nav class="left-nav" [ngClass]="{'left-nav__menu-open': isMenuOpen}">
+    <div *ngFor="let page of pages" class="left-nav__page-btn waves-effect waves-light"
+         [routerLink]="[page.link]" routerLinkActive="page-activated">
+        <i class="page-btn__icon material-icons">{{ page.icon }}</i>
+        <p class="page-btn__text">{{ page.text }}</p>
     </div>
   </nav>
 
