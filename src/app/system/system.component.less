@@ -2,11 +2,12 @@
 
 .root {
   background: #F0F4FA;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
 }
 
+/* HEADER */
 .header {
   height: @header-height;
   background: @header-color;
@@ -15,6 +16,8 @@
   top: 0px;
   box-sizing: border-box;
   box-shadow: @shadow;
+  z-index: 1000;
+  box-sizing: border-box;
 
   &__menu {
     position: absolute;
@@ -37,6 +40,8 @@
     position: absolute;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
 
     &-content {
       font-family: "Comic Sans MS";
@@ -56,30 +61,129 @@
 .right-content__item {
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: @font-color;
   height: 60px;
-  width: 100px;
+  width: auto;
   box-sizing: border-box;
   background: transparent;
-  padding: 0 10px;
-  transition: all 0.2s ease-out;
+  padding: 0 5px;
+  transition: @click-transition;
   cursor: pointer;
+  overflow: hidden;
 
   &:hover {
     background: darken(@header-color, 10%);
   }
 
+  &:focus {
+    outline: 0;
+  }
+
+  /* Animate clicked button*/
+  /*--------------------------*/
+  &:after {
+    content: "";
+    background: darken(@header-color, 15%);
+    display: block;
+    position: absolute;
+    left: -@margin-left-right;
+    padding: 50% 75%;
+    opacity: 0;
+    transition: all 0.8s ease;
+  }
+
+  &:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+  }
+  /*--------------------------*/
+
   &-text {
-    font-size: 17px;
+    font-size: @text-size;
+    margin: 0 @margin-left-right;
+  }
+
+  &-img {
+    height: 40px;
+    margin: 0 @margin-left-right;
+  }
+
+  &-icon {
+    margin: 0 @margin-left-right;
+  }
+}
+
+/* LEFT-SIDE MENU */
+.left-nav {
+  position: absolute;
+  top: @header-height;
+  height: calc(~"100vh - 60px");
+  width: @left-side;
+  background: @nav-background;
+  box-sizing: border-box;
+  box-shadow: @shadow;
+  display: block;
+  transition: left 0.5s ease;
+  left: 0;
+  z-index: 100;
+
+  &__page-btn {
+    width: @left-side;
+    height: 80px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    color: #899DC1;
+    cursor: pointer;
+    position: relative;
+    transition: @click-transition;
+
+    &:hover {
+      background: #2B384E;
+      color: @header-color;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.menu-open {
+  left: -160px;
+  z-index: 200;
+}
+
+.page-activated {
+  background: #2B384E;
+  color: @header-color;
+}
+
+.page-btn {
+  &__icon {
+    height: @icon-size;
+    width: @icon-size;
+    font-size: @icon-size;
+    padding: 0;
+  }
+
+  &__text {
+    padding: 0;
+    font-size: @text-size;
+    margin: 0;
+    line-height: @text-size;
   }
 }
 
 .content {
   position: absolute;
-  top: 60px;
-  left: @left-side;
+  top: @header-height;
 }
 
 @media (max-width: @mobile-size) {
@@ -99,5 +203,15 @@
 
   .mobile-none {
     display: none;
+  }
+}
+
+@media (min-width: @mobile-size) {
+  .menu-open {
+    left: 0;
+  }
+
+  .content {
+    left: @left-side;
   }
 }

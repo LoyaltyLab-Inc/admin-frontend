@@ -3,10 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SystemComponent } from './system.component';
 import { StatisticPageComponent } from './statistic-page/statistic-page.component';
+import { ShopsPageComponent } from './shops-page/shops-page.component';
+import { ProductsPageComponent } from './products-page/products-page.component';
+import { ManagementPageComponent } from './management-page/management-page.component';
+import { FeedbackPageComponent } from './feedback-page/feedback-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 const routes: Routes = [
-  {path: 'system', component: SystemComponent, children: [
-    { path: 'statistic', component: StatisticPageComponent }
+  {path: '', component: SystemComponent, children: [
+    { path: 'statistic', component: StatisticPageComponent },
+    { path: 'shops', component: ShopsPageComponent },
+    { path: 'products', component: ProductsPageComponent },
+    { path: 'management', component: ManagementPageComponent },
+    { path: 'feedback', component: FeedbackPageComponent },
+    { path: 'profile', component: ProfilePageComponent }
   ]}
 ];
 

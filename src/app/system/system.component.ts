@@ -8,20 +8,19 @@ import { Router } from '@angular/router';
 })
 export class SystemComponent implements OnInit {
   isMenuTransitioned = false;
-  isRightBtnTransitioned = false;
+  isMenuOpen = true;
 
   constructor(private router: Router) { }
 
-  ngOnInit() {
-    this.router.navigate(['/system/statistic']);
-  }
+  ngOnInit() { }
 
   onLogoClick() {
-    this.router.navigate(['/system/statistic']);
+    this.router.navigate(['/statistic']);
   }
 
   onMenuBtnOpen() {
     this.isMenuTransitioned = true;
+    this.isMenuOpen = !this.isMenuOpen;
 
     setTimeout(() => { this.isMenuTransitioned = false; }, 500);
   }

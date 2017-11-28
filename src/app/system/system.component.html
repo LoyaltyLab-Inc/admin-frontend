@@ -1,7 +1,7 @@
 <div class="root">
 
+  <!--HEADER-->
   <header class="header">
-
     <!-- TODO: сделать нормальную анимацию на кнопку-->
     <a (click)="onMenuBtnOpen()" class="header__menu btn-floating">
       <i class="material-icons" [ngClass]="{'header__menu-transitioned': isMenuTransitioned}">menu</i>
@@ -12,18 +12,42 @@
     </div>
 
     <div class="header__right-content">
-      <div class="right-content__item mobile-none" (click)="onProfileClick()">
-        <p class="right-content__item-text">Profile</p>
-        <i class="right-content__item-icon material-icons">face</i>
-        <!--нужен сервис с фоткой-->
-        <!--<img src="" alt="You">-->
+      <div class="right-content__item" (click)="onProfileClick()" routerLink="/profile">
+        <p class="right-content__item-text mobile-none">Profile</p>
+        <img class="right-content__item-img circle responsive-img" src="http://uchastniki.com/wp-content/uploads/2016/12/odincova13-270x270.jpg" alt="You">
       </div>
       <div class="right-content__item" (click)="onLogOutClick()">
         <i class="right-content__item-icon material-icons">exit_to_app</i>
-        <p class="right-content__item-text">Log&nbsp;out</p>
+        <p class="right-content__item-text mobile-none">Log&nbsp;out</p>
       </div>
     </div>
   </header>
+
+  <!--NAVIGATION-->
+  <nav class="left-nav" [ngClass]="{'menu-open': isMenuOpen}">
+    <div class="left-nav__page-btn waves-effect waves-light"
+         routerLink="/statistic" routerLinkActive="page-activated"
+         [routerLinkActiveOptions]="{exact: true}">
+        <i class="page-btn__icon material-icons">trending_up</i>
+        <p class="page-btn__text">Statistic</p>
+    </div>
+    <div class="left-nav__page-btn" routerLink="/shops" routerLinkActive="page-activated">
+      <i class="page-btn__icon material-icons">shop_two</i>
+      <p class="page-btn__text">Shops</p>
+    </div>
+    <div class="left-nav__page-btn" routerLink="/products" routerLinkActive="page-activated">
+      <i class="page-btn__icon material-icons">restaurant</i>
+      <p class="page-btn__text">Products</p>
+    </div>
+    <div class="left-nav__page-btn" routerLink="/management" routerLinkActive="page-activated">
+      <i class="page-btn__icon material-icons">edit</i>
+      <p class="page-btn__text">Management</p>
+    </div>
+    <div class="left-nav__page-btn" routerLink="/feedback" routerLinkActive="page-activated">
+      <i class="page-btn__icon material-icons">feedback</i>
+      <p class="page-btn__text">Feedback</p>
+    </div>
+  </nav>
 
   <div class="content">
     <router-outlet></router-outlet>
