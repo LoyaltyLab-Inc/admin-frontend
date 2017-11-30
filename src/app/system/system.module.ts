@@ -23,6 +23,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     ProductsPageComponent,
     ManagementPageComponent,
     FeedbackPageComponent,
-    ProfilePageComponent]
+    ProfilePageComponent],
+  providers: []
 })
 export class SystemModule { }

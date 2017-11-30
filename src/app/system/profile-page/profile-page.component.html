@@ -1,3 +1,7 @@
-<p>
-  profile-page works!
-</p>
+<div class="profile-root">
+  <div class="image-cropper">
+    <img class="user-image" src="{{ user.image }}" alt="YourPhoto">
+  </div>
+  <p class="user-name">{{ user.name }}&nbsp;{{ user.surname }}</p>
+  <p class="user-position">{{ user.position }}</p>
+</div>

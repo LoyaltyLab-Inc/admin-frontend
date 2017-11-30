@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ProfileService } from './profile.service';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'af-profile-page',
@@ -11,8 +13,16 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(private profile: ProfileService) { }
 
+  user: User;
+
+  // TODO: сделать нормальный обработчик событий
   ngOnInit() {
-    this.profile.getProfile().subscribe(user => console.log(user));
+    this.profile.getProfile().subscribe(
+      user => {
+      this.user = user;
+      },
+      error => alert(error)
+    );
   }
 
 }

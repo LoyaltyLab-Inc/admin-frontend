@@ -1,0 +1,49 @@
+@import "../../../styles.less";
+
+.profile-root {
+  @for-roots();
+}
+
+.image-cropper {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 150px;
+  overflow:hidden;
+  margin-top: @header-height;
+  box-shadow: @shadow;
+}
+
+.user-image {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+}
+
+.user-name {
+  font-size: @font-big;
+  font-weight: bold;
+  margin-top: 25px;
+  color: #A1A1A1;
+  text-shadow: @text-shadow;
+}
+
+.user-position {
+  font-size: @font-mid;
+  font-weight: bold;
+  margin-top: 12.5px;
+  color: #A1A1A1;
+  text-shadow: @text-shadow;
+}
+
+
+@media (max-width: @mobile-size) {
+  .image-cropper {
+    height: 160px;
+    width: 160px;
+  }
+}
+
+

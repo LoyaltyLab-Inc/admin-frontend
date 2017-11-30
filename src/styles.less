@@ -8,5 +8,21 @@
 @click-transition: all 0.2s ease-out;
 @margin-small: 3px;
 @icon-size: 35px;
-@text-size: 15px;
+@font-small: 15px;
 @nav-background: #34425A;
+@min-height: calc(~"100vh - @{header-height}");
+@for-roots: {
+  position: relative;
+  background: transparent;
+  height: 100%;
+  min-height: @min-height;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+};
+@font-big: 25px;
+@text-shadow: 0.5px 0.5px grey;
+@font-mid: 20px;
