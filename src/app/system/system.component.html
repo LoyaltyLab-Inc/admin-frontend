@@ -12,9 +12,9 @@
     </div>
 
     <div class="header__right-content">
-      <div class="right-content__item" (click)="onProfileClick()" routerLink="/profile">
+      <div class="right-content__item" routerLink="/profile">
         <p class="right-content__item-text mobile-none">Profile</p>
-        <img class="right-content__item-img circle responsive-img" src="http://uchastniki.com/wp-content/uploads/2016/12/odincova13-270x270.jpg" alt="You">
+        <img class="right-content__item-img circle" src="{{profileImage}}" alt="You">
       </div>
       <div class="right-content__item" (click)="onLogOutClick()">
         <i class="right-content__item-icon material-icons">exit_to_app</i>
