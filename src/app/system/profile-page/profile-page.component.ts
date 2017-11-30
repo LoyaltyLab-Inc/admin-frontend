@@ -15,13 +15,13 @@ export class ProfilePageComponent implements OnInit {
 
   user: User;
 
-  // TODO: сделать нормальный обработчик событий
+  // TODO: сделать нормальный обработчик ошибок
   ngOnInit() {
     this.profile.getProfile().subscribe(
       user => {
       this.user = user;
       },
-      error => alert(error)
+      error => console.log(error)
     );
   }
 

@@ -27,7 +27,7 @@ export class SystemComponent implements OnInit {
       image => {
       this.profileImage = image;
     },
-      error => alert(error));
+      error => console.log(error));
   }
 
   onLogoClick() {
@@ -42,10 +42,6 @@ export class SystemComponent implements OnInit {
   }
 
   onLogOutClick() {
-
-  }
-
-  onProfileClick() {
 
   }
 
