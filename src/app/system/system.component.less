@@ -110,14 +110,23 @@
   }
 
   &-img {
-    height: 40px;
-    width: 40px;
-    margin: 0 @margin-small;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: 100%;
   }
 
   &-icon {
     margin: 0 @margin-small;
   }
+}
+
+.statistic__image-wrapper {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: 20px;
+  overflow:hidden;
 }
 
 /* LEFT-SIDE MENU */

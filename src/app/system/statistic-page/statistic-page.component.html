@@ -1,3 +1,54 @@
-<p>
-  statistic-page works!
-</p>
+<div class="statistic">
+  <div class="statistic__wrapper">
+    <div class="statistic__graph">
+      <div class="graph-data">
+        <mat-card class="graph-data__item" *ngFor="let card of lineData">
+          <mat-card-header class="graph-data__item-header"
+                           [ngStyle]="{'border-bottom-color': card.color}">
+            <mat-card-title class="graph-data__item-title">
+              {{ card.label | uppercase }}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="graph-data__item-sum">
+            {{ card.sum | currency}}
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <mat-card class="graph-wrapper">
+        <af-line-graph class="graph-wrapper__line" [data]="filteredData"
+                       [colors]="filteredColors"
+                       [labels]="filteredLabels"></af-line-graph>
+      </mat-card>
+    </div>
+    <mat-card class="statistic__filters">
+      <mat-card-header class="filters-header">
+        Filters
+      </mat-card-header>
+      <form [formGroup]="statisticForm">
+        <mat-form-field class="filters-field">
+            <input formControlName="firstDate" matInput [matDatepicker]="firstPicker" placeholder="Choose a first date">
+            <mat-datepicker-toggle matSuffix [for]="firstPicker"></mat-datepicker-toggle>
+            <mat-datepicker #firstPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="filters-field">
+          <input formControlName="lastDate" matInput [matDatepicker]="lastPicker" placeholder="Choose a last date">
+          <mat-datepicker-toggle matSuffix [for]="lastPicker"></mat-datepicker-toggle>
+          <mat-datepicker #lastPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-checkbox class="filters-field"
+                      *ngFor="let check of lineData"
+                      [formControlName]="check.label" [ngStyle]="{'color': check.color}">
+          {{ check.label }}
+        </mat-checkbox>
+
+        <button mat-mini-fab class="filter-button"
+                (click)="onFilterButton()" [disabled]="statisticForm.invalid">
+          <i class="material-icons">done</i>
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>
