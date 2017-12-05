@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { ProfileService } from './profile.service';
 import { User } from '../../models/User';
@@ -13,7 +13,12 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(private profile: ProfileService) { }
 
-  user: User;
+  user: User = {
+    name: '',
+    surname: '',
+    image: '',
+    position: ''
+  };
 
   // TODO: сделать нормальный обработчик ошибок
   ngOnInit() {

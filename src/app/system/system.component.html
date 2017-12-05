@@ -3,7 +3,7 @@
   <!--HEADER-->
   <header class="header">
     <!-- TODO: сделать нормальную анимацию на кнопку-->
-    <a (click)="onMenuBtnOpen()" class="header__menu btn-floating">
+    <a (click)="onMenuBtnOpen()" mat-mini-fab class="header__menu">
       <i class="material-icons" [ngClass]="{'header__menu-transitioned': isMenuTransitioned}">menu</i>
     </a>
 
@@ -14,7 +14,9 @@
     <div class="header__right-content">
       <div class="right-content__item" routerLink="/profile">
         <p class="right-content__item-text mobile-none">Profile</p>
-        <img class="right-content__item-img circle" src="{{profileImage}}" alt="You">
+        <div class="statistic__image-wrapper">
+          <img mat-card-avatar class="right-content__item-img" src="{{profileImage}}" alt="You">
+        </div>
       </div>
       <div class="right-content__item" (click)="onLogOutClick()">
         <i class="right-content__item-icon material-icons">exit_to_app</i>
