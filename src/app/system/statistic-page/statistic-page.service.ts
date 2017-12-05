@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { LineChartData } from '../../models/LineChartData';
+import { BASE_URL } from '../../constants/baseUrl.const';
 
 @Injectable()
 export class StatisticPageService {
@@ -9,7 +10,7 @@ export class StatisticPageService {
   constructor(private http: Http) { }
 
   getLineGraphData() {
-    return this.http.get('http://localhost:8080/api/statistic/lineGraph')
+    return this.http.get(`${BASE_URL}/api/statistic/lineGraph`)
       .map((res: Response) => {
         return res.json();
       })

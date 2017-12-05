@@ -15,6 +15,8 @@ export class LineGraphComponent implements OnInit, OnChanges {
   @Input() private colors: string[] = [];
   @Input() private labels: string[] = [];
   private margin: any = { top: 30, bottom: 30, left: 30, right: 50};
+  private tooltipBias: any = {top: 15, left: 30};
+  private animatedRectBias: any = {bias: 5, height: 10, width: 10};
   private graphWidth: any;
   private graphHeight: any;
   private xScale: any;
@@ -96,15 +98,15 @@ export class LineGraphComponent implements OnInit, OnChanges {
             .datum(data)
             .style('display', null)
             .attr('y1', this.graphHeight + this.margin.top)
-            .attr('y2', (item: LineChartData) => this.yScale(item.value) + this.margin.top + 5)
+            .attr('y2', (item: LineChartData) => this.yScale(item.value) + this.margin.top)
             .attr('x1', (item: LineChartData) => this.xScale(item.date) + this.margin.left)
             .attr('x2', (item: LineChartData) => this.xScale(item.date) + this.margin.left);
 
           // Добавление текста
           svg.append('text')
             .attr('id', `text${data.date.getTime()}${Math.floor(data.value)}`)
-            .attr('y', () => this.yScale(data.value) + this.margin.top - 15)
-            .attr('x', () => this.xScale(data.date) + this.margin.left - 30)
+            .attr('y', () => this.yScale(data.value) + this.margin.top - this.tooltipBias.top)
+            .attr('x', () => this.xScale(data.date) + this.margin.left - this.tooltipBias.left)
             .text(data.value);
         };
 
@@ -144,10 +146,10 @@ export class LineGraphComponent implements OnInit, OnChanges {
       // Добавление 'бесцветного' прямоугольника
       svg.append('rect')
         .attr('class', 'animation-rect')
-        .attr('x', -1 * this.graphWidth - this.margin.left - 5)
+        .attr('x', -1 * this.graphWidth - this.margin.left - this.animatedRectBias.bias)
         .attr('y', -1 * this.graphHeight - this.margin.top)
-        .attr('height', this.graphHeight + 10)
-        .attr('width', this.graphWidth + 10)
+        .attr('height', this.graphHeight + this.animatedRectBias.height)
+        .attr('width', this.graphWidth + this.animatedRectBias.width)
         .attr('transform', 'rotate(180)')
         .style('fill', 'white');
 

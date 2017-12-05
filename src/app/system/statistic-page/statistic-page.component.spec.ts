@@ -1,4 +1,4 @@
-/*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StatisticPageComponent } from './statistic-page.component';
 
@@ -22,4 +22,4 @@ describe('StatisticPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});*/
+});

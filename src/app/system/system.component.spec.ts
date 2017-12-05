@@ -1,4 +1,5 @@
-/*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {} from 'jasmine';
 
 import { SystemComponent } from './system.component';
 
@@ -22,4 +23,4 @@ describe('SystemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});*/
+});

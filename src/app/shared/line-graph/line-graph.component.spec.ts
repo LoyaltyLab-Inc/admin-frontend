@@ -1,4 +1,4 @@
-/*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LineGraphComponent } from './line-graph.component';
 
@@ -22,4 +22,4 @@ describe('LineGraphComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});*/
+});

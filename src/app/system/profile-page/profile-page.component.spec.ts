@@ -1,4 +1,4 @@
-/*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfilePageComponent } from './profile-page.component';
 
@@ -22,4 +22,4 @@ describe('ProfilePageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});*/
+});
