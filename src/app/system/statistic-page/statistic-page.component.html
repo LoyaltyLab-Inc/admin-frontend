@@ -40,7 +40,8 @@
 
         <mat-checkbox class="filters-field"
                       *ngFor="let check of lineData"
-                      [formControlName]="check.label" [ngStyle]="{'color': check.color}">
+                      [formControlName]="check.label"
+                      [ngStyle]="{'color': check.color}">
           {{ check.label }}
         </mat-checkbox>
 

@@ -1,0 +1,43 @@
+@import "../../../styles.less";
+
+.shops {
+  @for-roots();
+  padding: @padding-mid;
+}
+
+.shop {
+  &__description span {
+    font-size: @font-small;
+    font-weight: bold;
+    color: @font-color-blue;
+  }
+
+  &__actions {
+    position: relative;
+  }
+}
+
+.search {
+  width: 100%;
+
+
+  &__input {
+    font-size: @font-small;
+  }
+}
+
+.actions {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__statistic {
+    position: relative;
+    font-size: @font-small;
+    cursor: pointer;
+    color: @font-color-blue;
+  }
+}

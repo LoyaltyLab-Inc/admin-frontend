@@ -1,0 +1,42 @@
+@import "../../../styles.less";
+
+.feedback {
+  @for-roots();
+  padding: @padding-mid;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  &-wrapper {
+    width: 600px;
+    height: auto;
+    position: relative;
+    display: flex;
+
+    & mat-card {
+      flex-basis: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & mat-form-field {
+        width: 100%;
+      }
+    }
+
+    &__header {
+      font-size: @font-mid;
+    }
+
+    &__send {
+      background-color: #D58359;
+    }
+  }
+}
+
+@media (max-width: @mobile-size) {
+  .feedback-wrapper {
+    width: 100%;
+  }
+}

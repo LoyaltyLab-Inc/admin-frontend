@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
-import { LineChartData } from '../../models/LineChartData';
-import { WindowChangesService } from '../window-changes.service';
+import { LineChartData } from '../../../models/LineChartData';
+import { WindowChangesService } from '../../window-changes.service';
 
 @Component({
   selector: 'af-line-graph',
@@ -17,6 +17,7 @@ export class LineGraphComponent implements OnInit, OnChanges {
   private margin: any = { top: 30, bottom: 30, left: 30, right: 50};
   private tooltipBias: any = {top: 15, left: 30};
   private animatedRectBias: any = {bias: 5, height: 10, width: 10};
+  private pointsR = 5;
   private graphWidth: any;
   private graphHeight: any;
   private xScale: any;
@@ -29,7 +30,7 @@ export class LineGraphComponent implements OnInit, OnChanges {
   private maxDate: Date;
   private minDate: Date;
   private notFirstEnter = false;
-  ticsCounter = 8;
+  private ticsCounter = 8;
 
 
   constructor (private windowChanges: WindowChangesService) {
@@ -98,7 +99,7 @@ export class LineGraphComponent implements OnInit, OnChanges {
             .datum(data)
             .style('display', null)
             .attr('y1', this.graphHeight + this.margin.top)
-            .attr('y2', (item: LineChartData) => this.yScale(item.value) + this.margin.top)
+            .attr('y2', (item: LineChartData) => this.yScale(item.value) + this.margin.top + this.pointsR)
             .attr('x1', (item: LineChartData) => this.xScale(item.date) + this.margin.left)
             .attr('x2', (item: LineChartData) => this.xScale(item.date) + this.margin.left);
 
@@ -155,7 +156,7 @@ export class LineGraphComponent implements OnInit, OnChanges {
 
       const transition = svg.transition()
         .delay(250)
-        .duration(1500);
+        .duration(1000);
 
       // Применение анимации
       transition.select('.animation-rect')
