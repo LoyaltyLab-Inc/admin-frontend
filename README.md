@@ -1,6 +1,9 @@
-# Administartive panel of predictive analytics service LoyaltyLab
+# Administrative panel of predictive analytics service LoyaltyLab
 
 This project is designed to display the work of the LoyaltyLab service and communication with store managers
+
+## Development server
+Run `ng serve` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
 ## Follow the statistic
 Follow the operation of the service using filters to display `statistic`
@@ -16,3 +19,4 @@ Follow your every `shop` or `product` and adjust the service if necessary
 ## Keep communicating with us
 Leave us `feedback`, we will reply to you as soon as possible.
 ![2017-12-15_15-13-18](https://user-images.githubusercontent.com/24477663/34041760-961089f0-e1aa-11e7-9d61-8741fda95270.png)
+
