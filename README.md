@@ -1,27 +1,18 @@
-# AdminFrontend
+# Administartive panel of predictive analytics service LoyaltyLab
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.3.
+This project is designed to display the work of the LoyaltyLab service and communication with store managers
 
-## Development server
+## Follow the statistic
+Follow the operation of the service using filters to display `statistic`
+![2017-12-15_15-11-41](https://user-images.githubusercontent.com/24477663/34041757-95572618-e1aa-11e7-9d29-4d0ddc4226a1.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Manage your business
 
-## Code scaffolding
+Follow your every `shop` or `product` and adjust the service if necessary
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ ![2017-12-15_15-12-39](https://user-images.githubusercontent.com/24477663/34041759-95f5b6b6-e1aa-11e7-8446-32d1ed500e2a.png)
+ ![2017-12-15_15-12-10](https://user-images.githubusercontent.com/24477663/34041758-95d58788-e1aa-11e7-8566-f049c0d8d596.png)
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Keep communicating with us
+Leave us `feedback`, we will reply to you as soon as possible.
+![2017-12-15_15-13-18](https://user-images.githubusercontent.com/24477663/34041760-961089f0-e1aa-11e7-9d61-8741fda95270.png)
