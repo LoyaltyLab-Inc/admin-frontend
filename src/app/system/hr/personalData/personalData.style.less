@@ -1,0 +1,98 @@
+@import "../../../../styles.less";
+
+.personal {
+  @for-roots();
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tasks {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.field {
+  position: relative;
+  margin: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form {
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+.header {
+  font-size: @font-big;
+}
+
+.field-name {
+  font-size: @font-mid;
+  margin: 10px 0;
+}
+
+.column {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.field__input {
+  margin: 10px;
+}
+
+.show_res {
+  margin: 20px 0;
+}
+
+.rejectClass {
+  color: darkred;
+  font-size: @font-mid;
+  font-weight: bold;
+}
+
+.approveClass {
+  color: green;
+  font-size: @font-mid;
+  font-weight: bold;
+}
+
+.result {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.res_mes {
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+.skls {
+  font-size: 17px;
+  color: @font-color-blue;
+  margin: 10px;
+}
+
+.skls span {
+  font-size: 17px;
+  color: @font-color;
+}
+

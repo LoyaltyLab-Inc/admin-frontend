@@ -8,31 +8,10 @@
     </a>
 
     <div class="header__logo" (click)="onLogoClick()">
-      <div class="header__logo-content">LoyaltyLab</div>
-    </div>
-
-    <div class="header__right-content">
-      <div class="right-content__item" routerLink="/profile">
-        <p class="right-content__item-text mobile-none">Profile</p>
-        <div class="statistic__image-wrapper">
-          <img mat-card-avatar class="right-content__item-img" src="{{profileImage}}" alt="You">
-        </div>
-      </div>
-      <div class="right-content__item" (click)="onLogOutClick()">
-        <i class="right-content__item-icon material-icons">exit_to_app</i>
-        <p class="right-content__item-text mobile-none">Log&nbsp;out</p>
-      </div>
+      <div class="header__logo-content">Cv-Score</div>
+      <p class="vakans">Вакансия: секретарь-референт</p>
     </div>
   </header>
-
-  <!--NAVIGATION-->
-  <nav class="left-nav" [ngClass]="{'left-nav__menu-open': isMenuOpen}">
-    <div *ngFor="let page of pages" class="left-nav__page-btn"
-         [routerLink]="[page.link]" routerLinkActive="page-activated">
-        <i class="page-btn__icon material-icons">{{ page.icon }}</i>
-        <p class="page-btn__text">{{ page.text }}</p>
-    </div>
-  </nav>
 
   <div class="content">
     <router-outlet></router-outlet>

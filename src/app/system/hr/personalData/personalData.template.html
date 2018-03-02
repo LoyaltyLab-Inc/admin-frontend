@@ -1,0 +1,197 @@
+<div class="personal">
+  <div class="tasks">
+    <div class="column">
+      <p class="header">Личные данные</p>
+      <form class="form" [formGroup]="personalForm">
+        <div class="field">
+          <p class="field-name">Гражданство</p>
+          <mat-form-field>
+            <input matInput
+                   formControlName="citizenship"
+                   type="text" class="field__input"
+                   placeholder="Пример: Россия">
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Пол</p>
+            <mat-radio-group [(ngModel)]="sex" [ngModelOptions]="{standalone: true}">
+              <mat-radio-button class="man" value="MALE">
+                Мужской
+              </mat-radio-button>
+              <mat-radio-button class="woman"value="FEMALE">
+                Женский
+              </mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Город</p>
+          <mat-form-field>
+            <input formControlName="work_location" matInput type="text" class="field__input"
+                   placeholder="Пример: Москва">
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Навыки</p>
+          <mat-form-field>
+          <textarea class="field_input"
+                    formControlName="skills_count"
+                    matTextareaAutosize matAutosizeMinRows="1"
+                    placeholder="Например: MS Office 1705"
+                    matInput></textarea>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+
+    <div class="column">
+      <p class="header">Образование</p>
+      <form class="form" [formGroup]="educationForm">
+        <div class="field">
+          <p class="field-name">Основное</p>
+          <mat-form-field>
+            <input matInput formControlName="education_type" type="text" #text class="field__input"
+                   placeholder="Пример: высшее">
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Дополнительное</p>
+          <mat-form-field>
+            <input class="field_input"
+                   formControlName="cource_name"
+                   placeholder="Пример: доп.курсы" matInput>
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Название университета</p>
+          <mat-form-field>
+          <textarea class="field_input"
+                    formControlName="university_name"
+                    matTextareaAutosize matAutosizeMinRows="1"
+                    placeholder="Пример: НИУ ВШЭ"
+                    matInput></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Специализация</p>
+          <mat-form-field>
+            <input class="field_input"
+                   formControlName="profession"
+                   placeholder="Пример: Банковское дело" matInput>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+
+    <div class="column">
+      <p class="header">Предыдущая работа</p>
+      <form class="form" [formGroup]="lastWorkForm">
+        <div class="field">
+          <p class="field-name">Название компании</p>
+          <mat-form-field>
+            <input matInput type="text" formControlName="company_name" class="field__input"
+                   placeholder="Например: Яндекс">
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Позиция</p>
+          <mat-form-field>
+          <textarea class="field_input"
+                    matTextareaAutosize matAutosizeMinRows="1"
+                    formControlName="position"
+                    placeholder="Пример: Бизнес-ассистент"
+                    matInput></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Опыт работы</p>
+          <mat-form-field>
+            <input matInput type="text" class="field__input"
+                   formControlName="experience_type"
+                   placeholder="Например: от 3 до 6 лет">
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+
+    <div class="column">
+      <p class="header">Пожелания по работе</p>
+      <form class="form" [formGroup]="dreamWorkForm">
+        <div class="field">
+          <p class="field-name">Готовность к переезду</p>
+          <mat-radio-group class="field__input" [(ngModel)]="relocation" [ngModelOptions]="{standalone: true}">
+            <mat-radio-button value="1">
+              Готов
+            </mat-radio-button>
+            <mat-radio-button value="0">
+              Не готов
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Зарплата от</p>
+          <mat-form-field>
+            <input matInput type="text"
+                   formControlName="salary_from"
+                   class="field__input"
+                   placeholder="Например: 50000">
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Зарплата до</p>
+          <mat-form-field>
+            <input matInput type="text"
+                   formControlName="salary_to"
+                   class="field__input"
+                   placeholder="Например: 250000">
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <p class="field-name">График работы</p>
+          <mat-form-field>
+            <input matInput type="text"
+                   formControlName="schedule_type"
+                   class="field__input"
+                   placeholder="Например: 5 на 2">
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <p class="field-name">Занятость</p>
+          <mat-form-field>
+            <input matInput type="text"
+                   formControlName="work_type"
+                   class="field__input"
+                   placeholder="Например: полный день">
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="show_res">
+    <button mat-raised-button (click)="onClick()" color="warn">Показать результаты</button>
+  </div>
+
+  <div class="result" *ngIf="result_showed">
+    <div class="res_mes">
+      <p [ngClass]="{'approveClass': approveClass, 'rejectClass': rejectClass}"> {{ resultText }} </p>
+    </div>
+    <p class="skls">Данный кандидат подходит по следующим признакам:</p>
+    <p class="skls">Опыт работы: <span>{{ lastWorkForm.value.experience_type }}</span></p>
+    <p class="skls">Навыки: <span>{{ personalForm.value.skills_count }}</span></p>
+    <p class="skls">Университет: <span>{{ educationForm.value.university_name }}</span></p>
+  </div>
+
+</div>

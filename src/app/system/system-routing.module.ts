@@ -8,16 +8,20 @@ import { ProductsPageComponent } from './products-page/products-page.component';
 import { ManagementPageComponent } from './management-page/management-page.component';
 import { FeedbackPageComponent } from './feedback-page/feedback-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { PersonalDataComponent } from './hr/personalData/personalData.component';
+import { EducationComponent } from './hr/education/education.component';
+import { LastWorkComponent } from './hr/lastWork/lastWork.component';
+import { DreamWorkComponent } from './hr/dreamWork/dreamWork.component';
+import { ResultComponent } from './hr/result/result.component';
 
 const routes: Routes = [
   {path: '', component: SystemComponent, children: [
-    { path: 'statistic/:type', component: StatisticPageComponent },
-    { path: 'shops', component: ShopsPageComponent },
-    { path: 'products', component: ProductsPageComponent },
-    { path: 'management', component: ManagementPageComponent },
-    { path: 'feedback', component: FeedbackPageComponent },
-    { path: 'profile', component: ProfilePageComponent},
-    {path: '**', redirectTo: 'statistic/all', pathMatch: 'full'}
+    { path: 'personalData', component: PersonalDataComponent },
+    { path: 'education', component: EducationComponent },
+    { path: 'lastWork', component: LastWorkComponent },
+    { path: 'dreamWork', component: DreamWorkComponent },
+    { path: 'result', component: ResultComponent },
+    {path: '**', redirectTo: 'personalData', pathMatch: 'full'}
   ]}
 ];
 

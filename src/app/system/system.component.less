@@ -15,6 +15,7 @@
   height: @header-height;
   background: @header-color;
   width: 100%;
+
   position: fixed;
   top: 0;
   box-sizing: border-box;
@@ -43,6 +44,7 @@
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    white-space: nowrap;
     cursor: pointer;
 
     &-content {
@@ -131,17 +133,8 @@
 
 /* LEFT-SIDE MENU */
 .left-nav {
-  position: absolute;
-  height: 100%;
-  min-height: @min-height;
   width: @left-side;
-  background: @nav-background;
-  box-sizing: border-box;
-  box-shadow: @shadow;
-  display: block;
-  transition: left 0.5s ease;
-  left: 0;
-  z-index: 100;
+
 
   &__page-btn {
     width: @left-side;
@@ -155,20 +148,6 @@
     cursor: pointer;
     position: relative;
     transition: @click-transition;
-
-    &:hover {
-      background: #2B384E;
-      color: @header-color;
-    }
-
-    &:focus {
-      outline: 0;
-    }
-  }
-
-  &__menu-open {
-    left: -@left-side;
-    z-index: 200;
   }
 }
 
@@ -196,8 +175,20 @@
 .content {
   position: relative;
   height: auto;
-  width: calc(~"100vw - @{left-side}");
-  overflow: hidden;
+  width: 100vw;
+}
+
+.vakans {
+  height: 100%;
+  font-size: @font-mid;
+  background: transparent;
+  position: relative;
+  align-items: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+
+  margin-left: 60px;
+  margin-top: 40px;
 }
 
 @media (max-width: @mobile-size) {
@@ -222,19 +213,10 @@
   .content {
     width: 100vw;
   }
-
-  .left-nav {
-    position: fixed;
-    height: calc(~"100vh - @{header-height}");
-  }
 }
 
 @media (min-width: @mobile-size) {
   .left-nav__menu-open {
     left: 0;
-  }
-
-  .content {
-    left: @left-side;
   }
 }

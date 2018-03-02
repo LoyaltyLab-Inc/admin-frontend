@@ -1,37 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProfileService } from './profile.service';
 
 @Component({
   selector: 'af-system',
   templateUrl: './system.component.html',
-  styleUrls: ['./system.component.less'],
-  providers: [ProfileService]
+  styleUrls: ['./system.component.less']
 })
 export class SystemComponent implements OnInit {
   isMenuTransitioned = false;
   isMenuOpen = true;
-  profileImage: string;
   pages = [
-    { link: '/statistic/all', icon: 'trending_up', text: 'Statistic' },
-    { link: '/shops', icon: 'shop_two', text: 'Shops' },
-    { link: '/products', icon: 'restaurant', text: 'Products' },
+    { link: '/personalData', icon: 'trending_up', text: 'Statistic' },
+    { link: '/education', icon: 'shop_two', text: 'Shops' },
+    { link: '/lastWork', icon: 'restaurant', text: 'Products' },
     /*{ link: '/management', icon: 'edit', text: 'Management' },*/
-    { link: '/feedback', icon: 'feedback', text: 'Feedback' }
+    { link: '/dreamWork', icon: 'feedback', text: 'Feedback' },
+    { link: '/result', icon: 'feedback', text: 'Feedback' }
   ];
 
-  constructor(private router: Router, private profile: ProfileService) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    this.profile.getProfileImage().subscribe(
-      image => {
-      this.profileImage = image;
-    },
-      error => console.log(error));
   }
 
   onLogoClick() {
-    this.router.navigate(['/statistic', 'all']);
+    this.router.navigate(['/personalData']);
   }
 
   onMenuBtnOpen() {
@@ -39,10 +32,6 @@ export class SystemComponent implements OnInit {
     this.isMenuOpen = !this.isMenuOpen;
 
     setTimeout(() => { this.isMenuTransitioned = false; }, 500);
-  }
-
-  onLogOutClick() {
-
   }
 
 }

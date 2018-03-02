@@ -8,6 +8,7 @@ import { SystemModule } from './system/system.module';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { GetResultService } from './shared/getResult.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [GetResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
