@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SystemModule } from './system/system.module';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     SystemModule,
     HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule
   ],
   providers: [],

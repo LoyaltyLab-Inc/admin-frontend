@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { LineChartData } from '../../models/LineChartData';
 import { StatisticPageService } from './statistic-page.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'af-statistic-page',
@@ -15,6 +16,8 @@ export class StatisticPageComponent implements OnInit {
   private filteredColors: string[] = [];
   private filteredLabels: string[] = [];
   private lineData: {color: string, label: string, sum: number}[];
+  private typeOfGraph: string;
+  private graphId = 0;
 
   statisticForm: FormGroup;
 
@@ -23,28 +26,43 @@ export class StatisticPageComponent implements OnInit {
   private lineGraphLabels: string[] = [];
 
   constructor(private staticService: StatisticPageService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.lineGraphLabels = this.staticService.getLineGraphLabels();
-    this.filteredLabels = this.staticService.getLineGraphLabels();
+    this.route.params.subscribe((params: Params) => {
+      this.typeOfGraph = params['type'];
+      this.refreshPage();
+    });
+    this.route.queryParams.subscribe((params: Params) => {
+      if (params.id) {
+        this.graphId = parseInt(params.id, 10);
+      }
+      this.refreshPage();
+    });
+    this.refreshPage();
+  }
 
-    this.lineGraphColors = this.staticService.getLineGraphColors();
-    this.filteredColors = this.staticService.getLineGraphColors();
+  refreshPage() {
+    this.lineGraphLabels = this.staticService.getLineGraphLabels(this.typeOfGraph);
+    this.filteredLabels = this.staticService.getLineGraphLabels(this.typeOfGraph);
 
-    this.staticService.getLineGraphData().subscribe(
+    this.lineGraphColors = this.staticService.getLineGraphColors(this.typeOfGraph);
+    this.filteredColors = this.staticService.getLineGraphColors(this.typeOfGraph);
+
+    this.staticService.getLineGraphData(this.typeOfGraph, this.graphId).subscribe(
       lineGraphData => {
         this.lineGraphData = lineGraphData;
         this.filteredData = lineGraphData;
-        this.lineData = this.staticService.getLineData(this.filteredData);
+        this.lineData = this.staticService.getLineData(this.filteredData, this.lineGraphColors, this.lineGraphLabels);
       },
       error => console.log(error)
     );
 
     this.statisticForm = this.formBuilder.group(
       // Для удобного добавления дополнительных графиков на плоскость
-      this.staticService.generateFormObject()
+      this.staticService.generateFormObject(this.lineGraphLabels)
     );
   }
 
@@ -78,6 +96,6 @@ export class StatisticPageComponent implements OnInit {
     this.filteredData = this.staticService.filterGraph(this.lineGraphData, filterInside, filterOutside);
     this.filteredLabels = this.staticService.filterLabel(this.lineGraphLabels, filterOutside);
     this.filteredColors = this.staticService.filterColors(this.lineGraphColors, filterOutside);
-    this.lineData = this.staticService.getLineData(this.filteredData);
+    this.lineData = this.staticService.getLineData(this.filteredData, this.lineGraphColors, this.lineGraphLabels);
   }
 }

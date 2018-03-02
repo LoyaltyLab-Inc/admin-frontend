@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { LineChartData } from '../../models/LineChartData';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { BASE_URL } from '../../constants/baseUrl.const';
 
 @Injectable()
 export class StatisticPageService {
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
-  getLineGraphData() {
-    return this.http.get(`${BASE_URL}/api/statistic/lineGraph`)
-      .map((res: Response) => {
-        return res.json();
-      })
+  getLineGraphData(type: string, id: number) {
+    return this.http.get(`${BASE_URL}/api/statistic/get/lineGraph/${type}`, {
+      params: new HttpParams().append('id', id.toString())
+    })
       .catch((error: Response) => {
         return Observable.throw('Сервер недоступен');
       })
@@ -30,25 +30,41 @@ export class StatisticPageService {
       });
   }
 
-  generateFormObject() {
+  generateFormObject(labels: string[]) {
     const ans: {[k: string]: any} = {};
     ans.firstDate = [new Date(2017, 0o1, 1)];
     ans.lastDate = [new Date()];
-    for (const label of this.getLineGraphLabels()) {
+    for (const label of labels) {
       ans[label] = [true];
     }
     return ans;
   }
 
-  getLineGraphLabels() {
-    return [
-      'income',
-      'expenses',
-      'profit'
-    ];
+  getLineGraphLabels(type: string) {
+    if (type === 'product') {
+      return ['volume of sales'];
+    }
+    if (type === 'all' || type === 'shop') {
+      return [
+        'income',
+        'expenses',
+        'profit'
+      ];
+    }
+    return [];
   }
 
-  getLineGraphColors() {
+  getLineGraphColors(type: string) {
+    if (type === 'product') {
+      return ['brown'];
+    }
+    if (type === 'all') {
+      return [
+        'purple',
+        'olive',
+        'teal'
+      ];
+    }
     return [
       'blue',
       'orange',
@@ -56,11 +72,11 @@ export class StatisticPageService {
     ];
   }
 
-  getLineData(graph: Array<LineChartData[]>) {
+  getLineData(graph: Array<LineChartData[]>, colors: string[], labels: string[]) {
     const ans = [];
     for (let i = 0; i < graph.length; i++) {
-      ans.push({color: this.getLineGraphColors()[i],
-        label: this.getLineGraphLabels()[i],
+      ans.push({color: colors[i],
+        label: labels[i],
         sum: this.countFilteredSum(graph[i])});
     }
     return ans;

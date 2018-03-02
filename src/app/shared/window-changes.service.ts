@@ -16,10 +16,10 @@ export class WindowChangesService {
   constructor() {
     const windowWidth$ = new BehaviorSubject(getWindowWidth());
 
-    this.width$ = (windowWidth$.pluck('width') as Observable<number>).distinctUntilChanged();
+    this.width$ = (windowWidth$.pluck('width') as Observable<number>)
+      .throttleTime(300).distinctUntilChanged();
 
     Observable.fromEvent(window, 'resize')
-      .debounceTime(300)
       .map(getWindowWidth)
       .subscribe(windowWidth$);
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { ProfileService } from './profile.service';
+import { ProfileService } from '../profile.service';
 import { User } from '../../models/User';
 
 @Component({

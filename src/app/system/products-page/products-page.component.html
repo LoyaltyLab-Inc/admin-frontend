@@ -1,3 +1,57 @@
-<p>
-  products-page works!
-</p>
+<div class="products">
+  <mat-form-field class="search" [formGroup]="searchForm">
+    <input matInput type="search" #search class="search__input"
+           placeholder="Search by name, category or id"
+           formControlName="search">
+  </mat-form-field>
+  <div class="discount-all">
+    <div class="discount-all__set-discount" [ngStyle]="{'visibility': selectedCount() ? 'visible' : 'hidden'}">
+      <p>Maximum discount to selected</p>
+      <mat-form-field [formGroup]="discountSelectedForm">
+        <input formControlName="discountSelected" matInput type="number" max="100"
+               min="0" (input)="onSelectedDiscountChange($event)">
+      </mat-form-field>
+      <p>%</p>
+    </div>
+    <button mat-button color="primary" class="discount-all__select-all" (click)="selectAll()">Select all</button>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel class="product" *ngFor="let product of products; let idx = index">
+      <mat-expansion-panel-header class="product__header">
+        <mat-panel-title>
+          <input type="checkbox" [checked]="checkedProducts[idx].checked" (click)="onCheckboxClick(product.id, $event)">
+          {{ (product.product.length > 50) ? (product.product | slice:0:50) + '...' : product.product }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="product__description">
+        <ul>
+          <li><span>Id:</span> {{ product.id }}</li>
+          <li><span>Full name:</span> {{product.product}}</li>
+          <li><span>Category:</span> {{ product.category }}</li>
+          <li><span>Price:</span> {{ product.price }} rub</li>
+          <li><span>Purchase price:</span> {{ product.actualPrice }} rub</li>
+        </ul>
+      </div>
+      <mat-action-row class="product__actions">
+        <div class="actions">
+          <a class="actions__statistic" (click)="onShowStatistic(product.id)">Show statistic</a>
+          <div class="actions__discount">
+            <p>Maximum discount:</p>
+            <mat-form-field [formGroup]="discountForm">
+              <input formControlName="discount" [value]="product.maxDiscount" matInput type="number" max="100"
+                     min="0" (input)="onDiscountChange(product.id, $event)">
+            </mat-form-field>
+            <p>%</p>
+          </div>
+        </div>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-paginator
+  [length]="pageLength"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  [pageIndex]="pageIndex"
+  (page)="pageEvent = refreshPage($event)"></mat-paginator>
+</div>

@@ -10,14 +10,15 @@ import { ManagementPageComponent } from './management-page/management-page.compo
 import { FeedbackPageComponent } from './feedback-page/feedback-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GraphsModule } from '../shared/graphs.module';
+import { GraphsModule } from '../shared/graphs/graphs.module';
 import {
   DateAdapter, MAT_DATE_FORMATS,
   MatButtonModule, MatCardModule, MatCheckboxModule,
-  MatDatepickerModule, MatFormFieldModule, MatInputModule,
-  MatNativeDateModule
+  MatDatepickerModule, MatExpansionModule, MatFormFieldModule, MatInputModule,
+  MatNativeDateModule, MatPaginatorModule
 } from '@angular/material';
 import { ExtendedDatepicker, MY_DATE_FORMATS } from './extendedDatepicker';
+import { ProfileService } from './profile.service';
 
 @NgModule({
   imports: [
@@ -32,7 +33,9 @@ import { ExtendedDatepicker, MY_DATE_FORMATS } from './extendedDatepicker';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatPaginatorModule
   ],
   declarations: [
     SystemComponent,
@@ -46,6 +49,7 @@ import { ExtendedDatepicker, MY_DATE_FORMATS } from './extendedDatepicker';
   providers: [
     {provide: DateAdapter, useClass: ExtendedDatepicker},
     {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS},
+    ProfileService
   ]
 })
 export class SystemModule { }

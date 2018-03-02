@@ -11,12 +11,13 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 const routes: Routes = [
   {path: '', component: SystemComponent, children: [
-    { path: 'statistic', component: StatisticPageComponent },
+    { path: 'statistic/:type', component: StatisticPageComponent },
     { path: 'shops', component: ShopsPageComponent },
     { path: 'products', component: ProductsPageComponent },
     { path: 'management', component: ManagementPageComponent },
     { path: 'feedback', component: FeedbackPageComponent },
-    { path: 'profile', component: ProfilePageComponent }
+    { path: 'profile', component: ProfilePageComponent},
+    {path: '**', redirectTo: 'statistic/all', pathMatch: 'full'}
   ]}
 ];
 

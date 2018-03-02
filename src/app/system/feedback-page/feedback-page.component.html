@@ -1,3 +1,11 @@
-<p>
-  feedback-page works!
-</p>
+<div class="feedback">
+  <div class="feedback-wrapper">
+    <mat-card>
+      <p class="feedback-wrapper__header">Please leave a feedback about us</p>
+      <mat-form-field>
+        <textarea #feedbackText class="feedback-wrapper__text" placeholder="Your feedback" matInput></textarea>
+      </mat-form-field>
+      <button mat-raised-button class="feedback-wrapper__send" (click)="sendFeedback()">Send</button>
+    </mat-card>
+  </div>
+</div>

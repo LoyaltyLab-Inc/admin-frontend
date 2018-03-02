@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProfileService } from './profile-page/profile.service';
+import { ProfileService } from './profile.service';
 
 @Component({
   selector: 'af-system',
@@ -13,10 +13,10 @@ export class SystemComponent implements OnInit {
   isMenuOpen = true;
   profileImage: string;
   pages = [
-    { link: '/statistic', icon: 'trending_up', text: 'Statistic' },
+    { link: '/statistic/all', icon: 'trending_up', text: 'Statistic' },
     { link: '/shops', icon: 'shop_two', text: 'Shops' },
     { link: '/products', icon: 'restaurant', text: 'Products' },
-    { link: '/management', icon: 'edit', text: 'Management' },
+    /*{ link: '/management', icon: 'edit', text: 'Management' },*/
     { link: '/feedback', icon: 'feedback', text: 'Feedback' }
   ];
 
@@ -31,7 +31,7 @@ export class SystemComponent implements OnInit {
   }
 
   onLogoClick() {
-    this.router.navigate(['/statistic']);
+    this.router.navigate(['/statistic', 'all']);
   }
 
   onMenuBtnOpen() {

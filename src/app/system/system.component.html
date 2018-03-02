@@ -27,7 +27,7 @@
 
   <!--NAVIGATION-->
   <nav class="left-nav" [ngClass]="{'left-nav__menu-open': isMenuOpen}">
-    <div *ngFor="let page of pages" class="left-nav__page-btn waves-effect waves-light"
+    <div *ngFor="let page of pages" class="left-nav__page-btn"
          [routerLink]="[page.link]" routerLinkActive="page-activated">
         <i class="page-btn__icon material-icons">{{ page.icon }}</i>
         <p class="page-btn__text">{{ page.text }}</p>

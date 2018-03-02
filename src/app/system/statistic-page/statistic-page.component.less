@@ -2,13 +2,13 @@
 
 .statistic {
   @for-roots();
+  padding-bottom: @padding-mid;
 
   &__wrapper {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap-reverse;
     height: auto;
-    padding: @padding-mid;
   }
 
   &__graph {
@@ -24,14 +24,8 @@
     margin: 15px 15px 0 15px;
     flex-basis: 200px;
     flex-grow: 1;
-    padding: @padding-mid;
   }
 
-  &__filter {
-    position: relative;
-    width: 50%;
-    height: auto;
-  }
 }
 
 .graph-data {

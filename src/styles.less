@@ -5,6 +5,7 @@
 @main-gradient: linear-gradient(to bottom right, #E88C42, #B2727D);
 @shadow: 0 0 2px rgba(0,0,0,0.7);
 @font-color: #1F2020;
+@font-color-blue: #3F51B5;
 @mobile-size: 769px;
 @left-side: 160px;
 @click-transition: all 0.2s ease-out;
@@ -19,6 +20,26 @@
   height: 100%;
   min-height: @min-height;
   margin: 0;
+};
+@discount-form: {
+  & p {
+    font-size: @font-small;
+    color: #F44236;
+  }
+
+  & mat-form-field {
+    position: relative;
+    width: 50px;
+    margin: @margin-small;
+    padding: 0;
+    border: 0;
+  }
+
+  & input {
+    padding: 0;
+    border: 0;
+    margin-bottom: -@margin-small;
+  }
 };
 @font-big: 25px;
 @text-shadow: 0.5px 0.5px grey;

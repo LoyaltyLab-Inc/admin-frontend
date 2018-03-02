@@ -1,3 +1,39 @@
-<p>
-  shops-page works!
-</p>
+<div class="shops">
+  <mat-form-field class="search" [formGroup]="searchForm">
+    <input matInput type="search" #search class="search__input"
+           placeholder="Search by address, id or senior manager"
+           formControlName="search">
+  </mat-form-field>
+  <mat-accordion>
+    <mat-expansion-panel class="shop" *ngFor="let shop of shops; let idx = index">
+      <mat-expansion-panel-header class="shop__header">
+        <mat-panel-title>
+          {{ shop.name }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ shop.address }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="shop__description">
+        <ul>
+          <li><span>Id:</span> {{ shop.id }}</li>
+          <li><span>Address:</span> {{ shop.address }}</li>
+          <li><span>Phone:</span> {{ shop.phone }}</li>
+          <li><span>Senior manager:</span> {{ shop.manager }}</li>
+        </ul>
+      </div>
+      <mat-action-row class="shop__actions">
+        <div class="actions">
+          <a class="actions__statistic" (click)="onShowStatistic(shop.id)">Show statistic</a>
+        </div>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-paginator
+    [length]="pageLength"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[10, 25, 50]"
+    [pageIndex]="pageIndex"
+    (page)="pageEvent = refreshPage($event)"></mat-paginator>
+</div>
