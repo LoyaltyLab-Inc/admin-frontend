@@ -1,0 +1,49 @@
+@import "../../../styles.less";
+
+.product-predict-root {
+  @for-roots();
+  display: flex;
+  justify-content: space-around;
+}
+
+.left-product {
+  //border: 1px solid red;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+}
+
+.right-product {
+  //border: 1px solid green;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: auto;
+}
+
+.search {
+  position: relative;
+  width: 80%;
+}
+
+.products {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  //border: 1px solid blue;
+  width: 100%;
+}
+
+.product {
+  position: relative;
+  margin: 5px;
+  width: 80%;
+}

@@ -19,6 +19,11 @@ import {
 } from '@angular/material';
 import { ExtendedDatepicker, MY_DATE_FORMATS } from './extendedDatepicker';
 import { ProfileService } from './profile.service';
+import { ProductPredictComponent } from './ProductPredict/product-predict.component';
+import { ProductPredictService } from './ProductPredict/product-predict.service';
+import { DatePredictComponent } from './DatePredicted/date-predict.component';
+import { DatePredictService } from './DatePredicted/date-predict.service';
+import { TimePredictComponent } from './TimePredicted/time-predict.component';
 
 @NgModule({
   imports: [
@@ -39,17 +44,13 @@ import { ProfileService } from './profile.service';
   ],
   declarations: [
     SystemComponent,
-    StatisticPageComponent,
-    ShopsPageComponent,
-    ProductsPageComponent,
-    ManagementPageComponent,
-    FeedbackPageComponent,
-    ProfilePageComponent
+    ProductPredictComponent,
+    DatePredictComponent,
+    TimePredictComponent
   ],
   providers: [
     {provide: DateAdapter, useClass: ExtendedDatepicker},
-    {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS},
-    ProfileService
-  ]
+    {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS}
+    ]
 })
 export class SystemModule { }

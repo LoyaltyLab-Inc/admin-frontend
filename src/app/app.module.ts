@@ -8,6 +8,7 @@ import { SystemModule } from './system/system.module';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePredictService } from './system/DatePredicted/date-predict.service';
 
 @NgModule({
   declarations: [

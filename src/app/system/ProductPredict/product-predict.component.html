@@ -1,0 +1,28 @@
+<div class="product-predict-root">
+  <div class="left-product">
+    <mat-form-field class="search" [formGroup]="searchForm">
+      <input matInput type="search" #search class="search__input"
+             placeholder="Search product" formControlName="search"
+      >
+    </mat-form-field>
+    <div class="products">
+      <div class="product" (click)="onProductClick($event)" >
+        <mat-card class="product" *ngFor="let product1 of productsFrom">{{product1}}</mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="right-product">
+    <div class="products">
+      <div class="product" (click)="onProductClick($event)" >
+        <mat-card class="product" *ngFor="let product2 of productsTo">{{product2}}</mat-card>
+      </div>
+    </div>
+    <button (click)="GetPredict()" mat-raised-button color="warn" style="margin: 15px">Get predict</button>
+    <p style="font-size: 20px">Predicted:</p>
+    <div class="products">
+      <div class="product" >
+        <mat-card class="product" *ngFor="let product3 of productsPredicted">{{product3}}</mat-card>
+      </div>
+    </div>
+  </div>
+</div>
