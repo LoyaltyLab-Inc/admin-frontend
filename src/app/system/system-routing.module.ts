@@ -8,16 +8,22 @@ import { ProductsPageComponent } from './products-page/products-page.component';
 import { ManagementPageComponent } from './management-page/management-page.component';
 import { FeedbackPageComponent } from './feedback-page/feedback-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { ProductPredictComponent } from './ProductPredict/product-predict.component';
+import { DatePredictComponent } from './DatePredicted/date-predict.component';
+import { TimePredictComponent } from './TimePredicted/time-predict.component';
 
 const routes: Routes = [
   {path: '', component: SystemComponent, children: [
-    { path: 'statistic/:type', component: StatisticPageComponent },
+    /*{ path: 'statistic/:type', component: StatisticPageComponent },
     { path: 'shops', component: ShopsPageComponent },
     { path: 'products', component: ProductsPageComponent },
     { path: 'management', component: ManagementPageComponent },
     { path: 'feedback', component: FeedbackPageComponent },
-    { path: 'profile', component: ProfilePageComponent},
-    {path: '**', redirectTo: 'statistic/all', pathMatch: 'full'}
+    { path: 'profile', component: ProfilePageComponent},*/
+    { path: 'product-predict', component: ProductPredictComponent },
+    { path: 'date-predict', component: DatePredictComponent},
+    { path: 'time-predict', component: TimePredictComponent},
+    {path: '**', redirectTo: 'product-predict', pathMatch: 'full'}
   ]}
 ];
 
