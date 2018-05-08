@@ -131,8 +131,8 @@
 
 /* LEFT-SIDE MENU */
 .left-nav {
-  position: absolute;
-  height: 100%;
+  position: fixed;
+  height: calc(~"100vh - @{header-height}");
   min-height: @min-height;
   width: @left-side;
   background: @nav-background;
@@ -221,11 +221,6 @@
 
   .content {
     width: 100vw;
-  }
-
-  .left-nav {
-    position: fixed;
-    height: calc(~"100vh - @{header-height}");
   }
 }
 

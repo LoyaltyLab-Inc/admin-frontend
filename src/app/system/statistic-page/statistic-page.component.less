@@ -2,6 +2,7 @@
 
 .statistic {
   @for-roots();
+  min-height: calc(~"100vh - @{header-height} - 15px");
   padding-bottom: @padding-mid;
 
   &__wrapper {
@@ -102,6 +103,9 @@
 }
 
 @media (max-width: 600px) {
+  .statistic {
+    min-height: calc(~"100vh - @{header-height} - 30px");
+  }
   .graph-data {
     flex-direction: column;
     justify-content: flex-start;

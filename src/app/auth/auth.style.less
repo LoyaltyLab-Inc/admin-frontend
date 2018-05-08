@@ -1,0 +1,44 @@
+@import "../../styles.less";
+
+.auth-wrapper {
+  position: absolute;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #647382;
+}
+
+.auth-form {
+  position: relative;
+  display: block;
+  height: 50%;
+  width: 70%;
+  max-width: 500px;
+  background-color: @header-color;
+  margin: auto;
+  shadow: @shadow;
+  justify-self: center;
+
+  &_header {
+    position: relative;
+    width: 100%;
+    height: @header-height;
+    background: @main-gradient;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+
+    &-content {
+      font-family: 'Comic Sans MS';
+      color: white;
+      margin: auto;
+      font-size: 28px;
+    }
+  }
+
+  &_content {
+    position: relative;
+    height: calc(~"100% - @{header-height}");
+    width: 100%;
+  }
+}

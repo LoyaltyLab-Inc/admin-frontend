@@ -48,14 +48,6 @@ export class ProductsPageComponent implements OnInit {
       discountSelected: ['', [Validators.min(0), Validators.max(100), Validators.pattern(this.digitRegex)]]
     });
 
-    this.router.navigate(['/products'], {
-      queryParams: {
-        pageIndex: this.pageIndex,
-        pageSize: this.pageSize,
-        searchText: this.searchText
-      }
-    });
-
     // Следим за изменением поля поиска
     Observable.fromEvent(this.searchElement.nativeElement, 'input')
       .map((e: any) => e.target.value)
@@ -92,6 +84,14 @@ export class ProductsPageComponent implements OnInit {
       this.productsService.getProductsAmount(this.searchText).subscribe((pageLength: {length}) => {
         this.pageLength = pageLength.length;
       });
+    });
+
+    this.router.navigate(['/products'], {
+      queryParams: {
+        pageIndex: this.pageIndex,
+        pageSize: this.pageSize,
+        searchText: this.searchText
+      }
     });
   }
 
@@ -158,7 +158,6 @@ export class ProductsPageComponent implements OnInit {
   }
 
   refreshPage(event) {
-    console.log(this.pageSizeOptions);
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
     this.router.navigate(['/products'], {
