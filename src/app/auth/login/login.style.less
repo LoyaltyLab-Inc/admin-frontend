@@ -16,11 +16,28 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
+  transform: translateY(30px);
   width: 70%;
 
   &_item {
     position: relative;
     width: 100%;
-    margin: auto;
+    margin: 10px auto;
+
+    &-submit,
+    &-error {
+      position: relative;
+      text-align: center;
+    }
   }
+}
+
+.signup-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  top: @margin-mid;
+  font-size: @font-small;
 }

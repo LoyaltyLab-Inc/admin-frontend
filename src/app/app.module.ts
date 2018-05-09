@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
+import { UserContextService } from './shared/userContext.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { AuthModule } from './auth/auth.module';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [UserContextService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

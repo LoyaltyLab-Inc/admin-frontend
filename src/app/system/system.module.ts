@@ -18,7 +18,6 @@ import {
   MatNativeDateModule, MatPaginatorModule
 } from '@angular/material';
 import { ExtendedDatepicker, MY_DATE_FORMATS } from './extendedDatepicker';
-import { ProfileService } from './profile.service';
 
 @NgModule({
   imports: [
@@ -48,8 +47,7 @@ import { ProfileService } from './profile.service';
   ],
   providers: [
     {provide: DateAdapter, useClass: ExtendedDatepicker},
-    {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS},
-    ProfileService
+    {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS}
   ]
 })
 export class SystemModule { }
