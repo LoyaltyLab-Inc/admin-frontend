@@ -1,0 +1,68 @@
+<div class="signup-root">
+
+  <div class="login-header">
+    <p>Have account already?</p>
+    <button mat-button
+            (click)="onSignedIn()"
+            color="warn">Sign in!</button>
+  </div>
+
+  <form class="signup-form"
+        (ngSubmit)="onSignedUp()"
+        [formGroup]="form">
+    <mat-form-field class="signup-form_item">
+      <input matInput
+             required
+             formControlName="name"
+             placeholder="Name">
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-hint>Please enter your full name</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="signup-form_item">
+      <input matInput
+             type="tel"
+             formControlName="phone"
+             placeholder="Phone">
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-hint>Please enter your phone number</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="signup-form_item">
+      <input matInput required placeholder="Email" formControlName="email">
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-hint>Please enter a email address</mat-hint>
+      <mat-error
+        *ngIf="form.controls.email.errors?.email && !form.controls.email.errors?.required">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="form.controls.email.errors?.required">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="signup-form_item">
+      <input matInput autocomplete="off" required placeholder="Password" formControlName="password" [type]="hide ? 'text': 'password'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-hint>Please enter a password</mat-hint>
+      <mat-error
+        *ngIf="form.controls.password.errors?.minlength && !form.controls.password.errors?.required">
+        Password must be longer. Minimal length of password: 6.
+      </mat-error>
+      <mat-error *ngIf="form.controls.password.errors?.required">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="signup-form_item">
+      <div class="signup-form_item-submit">
+        <button mat-raised-button
+                type="submit"
+                color="warn"
+                [disabled]="form.invalid">Sign up</button>
+      </div>
+    </div>
+
+    <div class="login-form_item-error">
+      <mat-error *ngIf="isErrorVisible">This email is already taken</mat-error>
+    </div>
+  </form>
+</div>

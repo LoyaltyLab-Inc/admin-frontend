@@ -1,33 +1,27 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { ProfileService } from '../profile.service';
 import { User } from '../../models/User';
+import { UserContextService } from '../../shared/userContext.service';
 
 @Component({
   selector: 'af-profile-page',
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.less'],
-  providers: [ProfileService]
+  providers: []
 })
 export class ProfilePageComponent implements OnInit {
-
-  constructor(private profile: ProfileService) { }
-
   user: User = {
     name: '',
-    surname: '',
     image: '',
-    position: ''
+    position: '',
+    email: '',
+    password: ''
   };
 
-  // TODO: сделать нормальный обработчик ошибок
+  constructor(private userService: UserContextService) { }
+
   ngOnInit() {
-    this.profile.getProfile().subscribe(
-      user => {
-      this.user = user;
-      },
-      error => console.log(error)
-    );
+    this.user = this.userService.getUserSync();
   }
 
 }

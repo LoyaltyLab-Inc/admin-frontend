@@ -16,8 +16,8 @@ const routes: Routes = [
     { path: 'products', component: ProductsPageComponent },
     { path: 'management', component: ManagementPageComponent },
     { path: 'feedback', component: FeedbackPageComponent },
-    { path: 'profile', component: ProfilePageComponent},
-    {path: '**', redirectTo: 'statistic/all', pathMatch: 'full'}
+    { path: 'profile', component: ProfilePageComponent },
+    { path: '**', redirectTo: 'statistic/all'}
   ]}
 ];
 

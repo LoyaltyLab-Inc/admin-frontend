@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProfileService } from './profile.service';
+import { UserContextService } from '../shared/userContext.service';
 
 @Component({
   selector: 'af-system',
   templateUrl: './system.component.html',
   styleUrls: ['./system.component.less'],
-  providers: [ProfileService]
+  providers: []
 })
 export class SystemComponent implements OnInit {
   isMenuTransitioned = false;
@@ -20,14 +20,11 @@ export class SystemComponent implements OnInit {
     { link: '/feedback', icon: 'feedback', text: 'Feedback' }
   ];
 
-  constructor(private router: Router, private profile: ProfileService) { }
+  constructor(private router: Router,
+              private userService: UserContextService) { }
 
   ngOnInit() {
-    this.profile.getProfileImage().subscribe(
-      image => {
-      this.profileImage = image;
-    },
-      error => console.log(error));
+    this.profileImage = this.userService.getUserSync().image;
   }
 
   onLogoClick() {

@@ -37,14 +37,6 @@ export class ShopsPageComponent implements OnInit {
       search: ['']
     });
 
-    this.router.navigate(['/shops'], {
-      queryParams: {
-        pageIndex: this.pageIndex,
-        pageSize: this.pageSize,
-        searchText: this.searchText
-      }
-    });
-
     // Следим за изменением поля поиска
     Observable.fromEvent(this.searchElement.nativeElement, 'input')
       .map((e: any) => e.target.value)
@@ -76,6 +68,14 @@ export class ShopsPageComponent implements OnInit {
       this.shopsService.getShopsAmount(this.searchText).subscribe((pageLength: {length}) => {
         this.pageLength = pageLength.length;
       });
+    });
+
+    this.router.navigate(['/shops'], {
+      queryParams: {
+        pageIndex: this.pageIndex,
+        pageSize: this.pageSize,
+        searchText: this.searchText
+      }
     });
   }
 
