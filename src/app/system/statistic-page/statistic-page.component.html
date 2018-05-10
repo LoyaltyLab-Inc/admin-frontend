@@ -1,8 +1,9 @@
 <div class="statistic">
   <div class="statistic__wrapper">
     <div class="statistic__graph">
-      <div class="graph-data">
-        <mat-card class="graph-data__item" *ngFor="let card of lineData">
+      <div class="graph-data"
+           [ngStyle]="{'justify-content': styleOfCards()}">
+        <mat-card class="graph-data__item" *ngFor="let card of cardData">
           <mat-card-header class="graph-data__item-header"
                            [ngStyle]="{'border-bottom-color': card.color}">
             <mat-card-title class="graph-data__item-title">
@@ -46,7 +47,8 @@
         </mat-checkbox>
 
         <button mat-mini-fab class="filter-button"
-                (click)="onFilterButton()" [disabled]="statisticForm.invalid">
+                (click)="onFilterButton()"
+                [disabled]="!filterButtonEnable">
           <i class="material-icons">done</i>
         </button>
       </form>

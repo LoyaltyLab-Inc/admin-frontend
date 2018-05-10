@@ -37,9 +37,9 @@ export class LineGraphComponent implements OnInit, OnChanges {
     // Подписка на событие изменения размер страницы
     windowChanges.width$.subscribe((value: any) => {
       if (value < 768) {
-        this.ticsCounter = 3;
+        this.ticsCounter = 4;
       } else {
-        this.ticsCounter = 8;
+        this.ticsCounter = 10;
       }
       if (this.notFirstEnter && this.isDataFull(this.data)
         && this.graphContainer.nativeElement.offsetWidth > 0) {
