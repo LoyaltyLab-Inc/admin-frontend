@@ -5,6 +5,9 @@ This project is designed to display the work of the LoyaltyLab service and commu
 ## Development server
 Run `ng serve` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
+## Authorize please
+![2018-05-09_04-45-07](https://user-images.githubusercontent.com/24477663/39911271-865649ba-5503-11e8-9b1a-74788fd2c01b.png)
+
 ## Follow the statistic
 Follow the operation of the service using filters to display `statistic`
 ![2017-12-15_15-11-41](https://user-images.githubusercontent.com/24477663/34041757-95572618-e1aa-11e7-9d29-4d0ddc4226a1.png)
